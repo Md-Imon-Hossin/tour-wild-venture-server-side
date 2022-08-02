@@ -52,10 +52,10 @@ async function run() {
       res.json(result)
     })
 
-    app.get('/orders', async (req, res) => {
-      const cursor = orderCollection.find({});
-      const plans = await cursor.toArray();
-      res.send(plans);
+    app.get('/orders/email', async (req, res) => {
+      const cursor = orderCollection.find({email : req.params.email});
+      const result = await cursor.toArray();
+      res.send(result);
     })
     // Delete API
     app.delete("/orders/:id", async (req, res) => {
