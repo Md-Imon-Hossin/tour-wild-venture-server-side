@@ -76,6 +76,9 @@ run().catch(console.dir);
 app.get('/', (req, res) => {
   res.send('This is node server');
 })
+app.get("/hello",(req,res)=>{
+  res.send("hello world updated");
+})
 app.listen(port, () => {
   console.log(`Server is Running on port ${port}`);
 })
