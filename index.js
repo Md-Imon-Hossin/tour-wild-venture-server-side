@@ -57,6 +57,11 @@ async function run() {
       // const result = await cursor.toArray();
       res.send(cursor);
     })
+    // manage all oders 
+    app.get("/allOrders", async (req,res)=>{
+      const result = await orderCollection.find({}).toArray();
+      res.send(result);
+    })
 
     // Delete API
     app.delete("/orders/:id", async (req, res) => {
