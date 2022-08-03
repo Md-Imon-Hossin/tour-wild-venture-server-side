@@ -53,10 +53,11 @@ async function run() {
     })
 
     app.get('/orders/email', async (req, res) => {
-      const cursor = orderCollection.find({email : req.params.email});
-      const result = await cursor.toArray();
-      res.send(result);
+      const cursor = orderCollection.find({email : req.params.email}).oArray();
+      // const result = await cursor.toArray();
+      res.send(cursor);
     })
+
     // Delete API
     app.delete("/orders/:id", async (req, res) => {
       const id = req.params.id;
