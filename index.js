@@ -53,7 +53,7 @@ async function run() {
     })
 
     app.get('/orders/email', async (req, res) => {
-      const cursor = orderCollection.find({email : req.params.email}).oArray();
+      const cursor = await orderCollection.find({email : req.params.email}).toArray();
       // const result = await cursor.toArray();
       res.send(cursor);
     })
